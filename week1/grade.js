@@ -62,16 +62,14 @@ function checkGrade(totalMarks, examType){
             console.log("Good job, you got an A.")
         }else if(totalMarks <= 79 && totalMarks >= 75){
             console.log("Well done, you got a B+.")
-        }else if (totalMarks <= 79 && totalMarks >= 75){
-            console.log("Well done, you got a B+.")
         }else if (totalMarks <= 74 && totalMarks >= 70){
             console.log("Nice work, you got a B")
         }else if (totalMarks <= 60 && totalMarks >= 69){
             console.log("You got a C.")
-        }else if (totalMarks <= 60){
+        }else if (totalMarks <= 60 && totalMarks >= 0){
             console.log("You need to improve.")
         }else{
-            console.log("Invalid input for the midterm exam")
+            console.log("Invalid marks for the midterm exam")
         }
     }else if(examType === "final"){
         if(totalMarks >= 90){
@@ -80,19 +78,17 @@ function checkGrade(totalMarks, examType){
             console.log("Good job, you got an A.")
         }else if(totalMarks <= 79 && totalMarks >= 75){
             console.log("Well done, you got a B+.")
-        }else if (totalMarks <= 79 && totalMarks >= 75){
-            console.log("Well done, you got a B+.")
         }else if (totalMarks <= 74 && totalMarks >= 70){
             console.log("Nice work, you got a B")
-        }else if (totalMarks <= 60 && totalMarks >= 69){
+        }else if (totalMarks <= 69 && totalMarks >= 60){
             console.log("You got a C.")
         }else if (totalMarks <= 60){
             console.log("You need to improve.")
         }else{
-            console.log("invalid input for the final exam")
+            console.log("invalid marks for the final exam")
         }
     }else{
         console.log("Invalid exam examType")
     }
 }
-checkGrade(89,"final")
+checkGrade(40,"final")
