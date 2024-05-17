@@ -16,11 +16,8 @@ var student = {
 };
 
 let student_keys = Object.keys(student)
-
-// console.log(student_keys)
-
-let i;
-for (i=0;i<=student_keys.length-1;i++){
-    console.log(student_keys[i])
+let studentArr = [];
+for (let i =0;i<=student_keys.length-1;i++){
+    studentArr.push(student_keys[i])
 }
-
+console.log(studentArr.join())

@@ -7,6 +7,8 @@
 // sclass : "VI",
 // rollno : 12 };
 
+let obj = {name: "kim", lname: "asd"}
+
 var student = {
     name : "David Rayy",
     sclass : "VI",
