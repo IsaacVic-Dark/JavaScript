@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON</title>
+  </head>
+  <body>
+    <script>
+
+      async function fetchRecreations(){
+        try{
+          const response = await fetch("data.json");
+          const recreations = await response.json();
+          displayRecreations(recreations)
+        }catch(error){
+          const prob = document.createElement('h1')
+          prob.textContent = "The was an error in fetching the data!!"
+          document.body.append(prob)
+        }
+      }
+
+      function displayRecreations(recreations) {
+        const wrapper = document.createElement("main");
+        document.body.appendChild(wrapper);
+        wrapper.style.display = "grid";
+        wrapper.style.gridTemplateColumns = "repeat(3, 1fr)";
+        wrapper.style.gap = " .5rem";
+
+        recreations.forEach(recreation => {
+          const myDiv = document.createElement("div");
+          wrapper.appendChild(myDiv);
+          myDiv.style.display = "flex";
+          myDiv.style.flexDirection = "column";
+          myDiv.style.border ="2px solid black"
+          myDiv.style.alignItems = "center";
+          myDiv.style.width = "100%"
+          myDiv.style.height = "auto"
+
+          const img = document.createElement("img");
+          img.src = recreation.imageUrl;
+          img.style.width = "100%";
+          img.style.height = "300px";
+          myDiv.appendChild(img);
+
+          const title = document.createElement("h2");
+          title.textContent = `${recreation.title}`;
+          myDiv.appendChild(title);
+
+          const date = document.createElement("p");
+          date.textContent = `${recreation.date}`;
+          myDiv.appendChild(date);
+
+          const company = document.createElement("p");
+          company.textContent = `${recreation.company}`;
+          myDiv.appendChild(company);
+
+          const location = document.createElement("p");
+          location.textContent = `${recreation.location}`;
+          myDiv.appendChild(location);
+
+          const price = document.createElement("p");
+          price.textContent = `Kshs${recreation.price}`;
+          myDiv.appendChild(price);
+
+          const button = document.createElement("button");
+          button.textContent = "Buy Now";
+          myDiv.appendChild(button);
+          button.style.backgroundColor = "blue";
+          button.style.color = "white";
+          button.style.width = "200px";
+          button.style.height = "50px";
+        });
+      }
+      fetchRecreations()
+    </script>
+  </body>
+</html>
