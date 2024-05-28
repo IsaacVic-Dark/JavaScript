@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Users</title>
+</head>
+<body>
+    <script>
+        // Github wont allow pushing with Token
+        // Uncomment the token
+        // const token = "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"
+
+        
+        const main = document.createElement("main")
+        document.body.append(main)
+
+        const container = document.createElement("form")
+        main.appendChild(container)
+        
+        const header = document.createElement("h1")
+        header.textContent = "Github Search Tool"
+        container.appendChild(header)
+
+        const input = document.createElement("input")
+        input.placeholder = "Search Here"
+        input.id = "inputId"
+        container.appendChild(input)
+        
+        const btn = document.createElement("button")
+        btn.textContent = "Search a github User"
+        btn.type = "submit"
+        btn.style.backgroundColor = "black"
+        btn.style.color = "white"
+        container.appendChild(btn)
+        
+        const contentDiv = document.createElement("div");
+        contentDiv.style.display = "flex";
+        contentDiv.style.flexDirection = "column";
+        contentDiv.style.marginTop = "20px";
+        container.appendChild(contentDiv);
+
+        container.addEventListener("submit", function(event){
+            event.preventDefault();
+            fetchGitUserData();
+        })
+
+        async function fetchGitUserData(){
+            try {
+                const input = document.getElementById("inputId").value
+                // uncomment response below
+                // const response = await fetch(`https://api.github.com/users/${input}`, {headers: {Authorization: `Bearer${token}`}})
+                if(!response.ok){
+                    throw new Error("Could not fresh resource")
+                }
+                const data = await response.json()
+                console.log(data);
+
+                contentDiv.innerHTML = "";
+
+                const photo = document.createElement("img")
+                photo.src = data.avatar_url
+                photo.style.width = "100px"
+                photo.style.height = "100px"
+                photo.style.borderRadius = "100%"
+                contentDiv.appendChild(photo)
+
+                const userName = document.createElement("h2")
+                userName.textContent = data.name
+                contentDiv.appendChild(userName)
+
+                const location = document.createElement("p")
+                location.textContent = data.location
+                contentDiv.appendChild(location)
+
+                const repos = document.createElement("p")
+                repos.textContent = `${data.public_repos} Repos`
+                contentDiv.appendChild(repos)
+
+                const since = document.createElement("p")
+                const createdAt = new Date(data.created_at);
+                since.textContent = `User since ${createdAt.getFullYear()}`
+                contentDiv.appendChild(since)
+
+                const bio = document.createElement("p")
+                bio.textContent = data.bio
+                contentDiv.appendChild(bio)
+
+                const portfolio = document.createElement("button")
+                portfolio.textContent = "Portfolio"
+                portfolio.style.backgroundColor = "blue"
+                portfolio.style.width = "100px"
+                portfolio.style.color = "white"
+                portfolio.src = data.blog
+                contentDiv.appendChild(portfolio)
+                
+                const twitter = document.createElement("button")
+                twitter.textContent = "Twitter url"
+                twitter.style.backgroundColor = "blue"
+                twitter.style.color = "white"
+                twitter.style.width = "100px"
+                twitter.style.marginTop = "20px"
+                twitter.src = data.twitter_username
+                contentDiv.appendChild(twitter)
+
+
+            } catch (error) {
+                console.log("Something went wrong in fetching the data");
+                const theError = document.createElement("h2")
+                theError.textContent = "Something went wrong in fetching the data!!"
+                theError.style.color = "red"
+                contentDiv.appendChild(theError)
+            }
+        }
+    </script>
+</body>
+</html>
