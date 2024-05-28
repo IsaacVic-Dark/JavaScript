@@ -7,11 +7,8 @@
 </head>
 <body>
     <script>
-        // Github wont allow pushing with Token
-        // Uncomment the token
-        // const token = "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"
+        const token = "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"
 
-        
         const main = document.createElement("main")
         document.body.append(main)
 
@@ -48,8 +45,7 @@
         async function fetchGitUserData(){
             try {
                 const input = document.getElementById("inputId").value
-                // uncomment response below
-                // const response = await fetch(`https://api.github.com/users/${input}`, {headers: {Authorization: `Bearer${token}`}})
+                const response = await fetch(`https://api.github.com/users/${input}`, {headers: {Authorization: `Bearer${token}`}})
                 if(!response.ok){
                     throw new Error("Could not fresh resource")
                 }
