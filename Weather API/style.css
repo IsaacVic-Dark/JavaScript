@@ -1,0 +1,53 @@
+body{
+    height: 100vh;
+    background-image: url('./assets/sky.jpg');
+    background-size: cover;
+    background-position: center;
+}
+img{
+    width: 100px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input{
+    padding: 15px;
+    border-radius: 20px;
+    background-color: rgb(235, 235, 235);
+    border: none;
+    width: 300px;
+}
+button{
+    padding: 15px;
+    border-radius: 20px;
+    background-color: rgb(248, 192, 9);
+    border: none;
+    color: white;
+}
+.container{
+    display: flex;
+    padding: 20px;
+    margin: 20px;
+    gap: 1rem;
+    background-color: rgba(204, 204, 204, 0.5);
+    border-radius: 20px;
+    width: 400px;
+}
+.box_left{
+    display: flex;
+    align-items: center;
+}
+.smallBoxes{
+    display: flex;
+    gap: 2rem;
+}
+.sm_1, .sm_2, .sm_3, .sm_4{
+    background-color: rgba(180, 180, 180, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

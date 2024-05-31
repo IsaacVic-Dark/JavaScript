@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main>
+        <form action=""  onsubmit="fetchData(event)">
+            <input type="text" placeholder="Enter a city" id="cityInput">
+            <button type="submit">Search</button>
+        </form>
+        <div class="container">
+            <div class="box_left">
+                <img src="./assets/sun.png" alt="" id="presentDayImage">
+            </div>
+            <div class="box_right" id="presentDayReport">
+                <h2 id="presentDay">Today</h2>
+                <h1 id="place">New York</h1>
+                <p id="temp">Temperature 17C</p>
+                <p id="condition">Clear sky</p>
+            </div>
+        </div>
+        <div class="smallBoxes">
+            <div class="sm_1">
+                <h2 id="day_1">Wednesday</h2>
+                <!-- <p id="day_1Image"></p> -->
+                <img src="./assets/sun.png" alt="" id="day_1Image">
+                <p id="firstday">27C</p>
+            </div>
+            <div class="sm_2">
+                <h2 id="day_2">Thursday</h2>                    
+                <img src="./assets/sun.png" alt="" id="day_2Image">
+                <p id="secondday">27C</p>
+            </div>
+            <div class="sm_3">
+                <h2 id="day_3">Saturday</h2>                    
+                <img src="./assets/sun.png" alt="" id="day_3Image">
+                <p id="thirdday">27C</p>
+            </div>
+            <div class="sm_4">
+                <h2 id="day_4">Sunday</h2>
+                <img src="./assets/sun.png" alt="" id="day_4Image">
+                <p id="fourthday">27C</p>
+            </div>
+        </div>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
