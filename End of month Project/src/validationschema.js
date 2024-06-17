@@ -1,11 +1,6 @@
 const { body } = require('express-validator');
 
 const createValidationSchema = {
-  // id: {
-  //   notEmpty: {
-  //     errorMessage: 'id cannot be empty'
-  //   }
-  // },
   name: {
     in: ['body'],
     isString: {
